@@ -30,115 +30,115 @@ export default function Login() {
 
 	// Ação da Tela
 
-	const entrar = () => {
-		// if (isValid) {
-		// 	dispatch(LoaderCreators.setLoading());
-		// 	LoginService.login({ Id: login.value, Password: senha.value })
-		// 		.then(response => {
-		// 			if (!response.autResult.authenticated) {
-		// 				callbackError(translate(response.autResult.message));
-		// 			} else {
-		// 				callback(
-		// 					JSON.stringify(
-		// 						Object.assign(
-		// 							{
-		// 								accessToken: response.autResult.accessToken,
-		// 								permissions: response.autResult.user.permissions
-		// 							},
-		// 							response.appUser
-		// 						)
-		// 					)
-		// 				);
-		// 			}
-		// 		})
-		// 		.catch(() => {
-		// 			callbackWarning(translate('usuarioOuSenhaInvalido'));
-		// 		});
-		// }
+	// const entrar = () => {
+	// 	// if (isValid) {
+	// 	// 	dispatch(LoaderCreators.setLoading());
+	// 	// 	LoginService.login({ Id: login.value, Password: senha.value })
+	// 	// 		.then(response => {
+	// 	// 			if (!response.autResult.authenticated) {
+	// 	// 				callbackError(translate(response.autResult.message));
+	// 	// 			} else {
+	// 	// 				callback(
+	// 	// 					JSON.stringify(
+	// 	// 						Object.assign(
+	// 	// 							{
+	// 	// 								accessToken: response.autResult.accessToken,
+	// 	// 								permissions: response.autResult.user.permissions
+	// 	// 							},
+	// 	// 							response.appUser
+	// 	// 						)
+	// 	// 					)
+	// 	// 				);
+	// 	// 			}
+	// 	// 		})
+	// 	// 		.catch(() => {
+	// 	// 			callbackWarning(translate('usuarioOuSenhaInvalido'));
+	// 	// 		});
+	// 	// }
 
-		callback(
-			JSON.stringify(
-				Object.assign(
-					{
-						accessToken: "",
-						permissions: null
-					},
-					null
-				)
-			)
-		);
-	};
+	// 	callback(
+	// 		JSON.stringify(
+	// 			Object.assign(
+	// 				{
+	// 					accessToken: "",
+	// 					permissions: null
+	// 				},
+	// 				null
+	// 			)
+	// 		)
+	// 	);
+	// };
 
-	// Ação de Retorno
+	// // Ação de Retorno
 
-	const callback = user => {
-		// dispatch(LoaderCreators.disableLoading());
-		// setUser(user);
-		// if (checkFuncionalidade(FORNECEDOR_CADASTRO, CRIAR)) {
-		 	history.push(paths.getPathByCodigo('cadastro-complementar'));
-		// } else if (checkFuncionalidade(FORNECEDOR_ANALISE_CADASTRO, CRIAR)) {
-		// 	history.push(paths.getPathByCodigo('analise-cadastro'));
-		// } else {
-		//	history.push(paths.getPathByCodigo('home'));
-		//}
-	};
+	// const callback = user => {
+	// 	// dispatch(LoaderCreators.disableLoading());
+	// 	// setUser(user);
+	// 	// if (checkFuncionalidade(FORNECEDOR_CADASTRO, CRIAR)) {
+	// 	 	history.push(paths.getPathByCodigo('cadastro-complementar'));
+	// 	// } else if (checkFuncionalidade(FORNECEDOR_ANALISE_CADASTRO, CRIAR)) {
+	// 	// 	history.push(paths.getPathByCodigo('analise-cadastro'));
+	// 	// } else {
+	// 	//	history.push(paths.getPathByCodigo('home'));
+	// 	//}
+	// };
 
-	const callbackError = mensagem => {
-		dispatch(LoaderCreators.disableLoading());
-		enqueueSnackbar('', snackError(mensagem, closeSnackbar));
-	};
+	// const callbackError = mensagem => {
+	// 	dispatch(LoaderCreators.disableLoading());
+	// 	enqueueSnackbar('', snackError(mensagem, closeSnackbar));
+	// };
 
-	const callbackWarning = mensagem => {
-		dispatch(LoaderCreators.disableLoading());
-		enqueueSnackbar('', snackWarning(mensagem, closeSnackbar));
-	};
+	// const callbackWarning = mensagem => {
+	// 	dispatch(LoaderCreators.disableLoading());
+	// 	enqueueSnackbar('', snackWarning(mensagem, closeSnackbar));
+	// };
 
-	// Formulários
+	// // Formulários
 
-	const initialValues = {
-		login: '',
-		senha: '',
-		recaptcha: ''
-	};
+	// const initialValues = {
+	// 	login: '',
+	// 	senha: '',
+	// 	recaptcha: ''
+	// };
 
-	const testRecaptcha = value => {
-		if (emailIsValid(login.value)) {
-			if (!value) {
-				return false;
-			}
-		}
-		return true;
-	};
+	// const testRecaptcha = value => {
+	// 	if (emailIsValid(login.value)) {
+	// 		if (!value) {
+	// 			return false;
+	// 		}
+	// 	}
+	// 	return true;
+	// };
 
-	const validationSchema = Yup.object().shape({
-		login: Yup.string().required(translate('campoObrigatorio')),
-		senha: Yup.string().required(translate('campoObrigatorio')),
-		recaptcha: Yup.string().test('recaptcha', translate('campoObrigatorio'), value =>
-			testRecaptcha(value)
-		)
-	});
+	// const validationSchema = Yup.object().shape({
+	// 	login: Yup.string().required(translate('campoObrigatorio')),
+	// 	senha: Yup.string().required(translate('campoObrigatorio')),
+	// 	recaptcha: Yup.string().test('recaptcha', translate('campoObrigatorio'), value =>
+	// 		testRecaptcha(value)
+	// 	)
+	// });
 
-	const { getFieldProps, handleSubmit, isValid, submitCount, setFieldValue } = useFormik({
-		initialValues,
-		validationSchema,
-		onSubmit: entrar
-	});
+	// const { getFieldProps, handleSubmit, isValid, submitCount, setFieldValue } = useFormik({
+	// 	initialValues,
+	// 	validationSchema,
+	// 	onSubmit: entrar
+	// });
 
-	const [
-		login,
-		metadataLogin
-	] = getFieldProps('login', 'text');
+	// // const [
+	// // 	login,
+	// // 	metadataLogin
+	// // ] = getFieldProps('login', 'text');
 
-	const [
-		senha,
-		metadataSenha
-	] = getFieldProps('senha', 'text');
+	// // const [
+	// // 	senha,
+	// // 	metadataSenha
+	// // ] = getFieldProps('senha', 'text');
 
-	const [
-		// eslint-disable-next-line no-unused-vars
-		recaptcha,
-		metadataRecaptcha
-	] = getFieldProps('recaptcha', 'text');
+	// // const [
+	// // 	// eslint-disable-next-line no-unused-vars
+	// // 	recaptcha,
+	// // 	metadataRecaptcha
+	// // ] = getFieldProps('recaptcha', 'text');
 
 	return (
 		// <Background>
